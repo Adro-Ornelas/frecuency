@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/opc_principal"
+        android:title="Principal"/>
+    <item
+        android:id="@+id/perfil"
+        android:title="Perfil"
+        android:icon="@drawable/baseline_account_circle_24_white"
+        app:showAsAction="always"
+        />
+    <item
+        android:id="@+id/opc_logout"
+        android:title="Cerrar sesión"
+        android:icon="@drawable/baseline_logout_24"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/opc_ver"
+        android:title="Ver"
+        />
+    <item
+        android:id="@+id/opc_modificar"
+        android:title="Modificar"
+        />
+    <item
+        android:id="@+id/opc_eliminar"
+        android:title="Eliminar"
+        android:icon="@drawable/baseline_delete_24"
+        />
+    <item
+        android:id="@+id/opc_creadores"
+        android:title="Creadores"
+        />
+    <item
+        android:id="@+id/opc_contactos"
+        android:title="Contactos"
+        />
+</menu>
