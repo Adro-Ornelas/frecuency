@@ -58,6 +58,7 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+
     <string name="album_image">Imagen del álbum</string>
     <string name="skip">skip</string>
     <string name="play">play</string>
@@ -68,4 +69,7 @@
     <string name="apellido_materno">Apellido materno</string>
     <string name="num_telefon">Número telefónico</string>
     <string name="artista_show">Artista - Show</string>
+    <string name="fecha_de_nacimiento">Fecha de nacimiento</string>
+    <string name="hora_final_del_show">Hora final del show</string>
+    <string name="hora_inicio_del_show">Hora inicio del show</string>
 </resources>

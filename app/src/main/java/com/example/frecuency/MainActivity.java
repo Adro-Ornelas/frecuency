@@ -1,12 +1,18 @@
 package com.example.frecuency;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -17,10 +23,15 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.Calendar;
+
 public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     SharedPreferences archivo;
-    //  RecyclerView recyclerView;
+    EditText edt_nombreArt, edt_nombreReal, edt_apep, edt_apem, edt_numT, edt_borndate,
+             edt_ciudad, edt_horaInicio, edt_horaFinal;
+    Spinner spinner_city;
+
     Button playlist, albums, artistas;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,17 +44,76 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        // Asignar ID a cada componente
+        edt_nombreArt = findViewById(R.id.edt_nombre_art);
+        edt_nombreReal = findViewById(R.id.edt_nombre_real);
+        edt_apep = findViewById(R.id.edt_apep);
+        edt_apem = findViewById(R.id.edt_apem);
+        edt_numT = findViewById(R.id.edt_tel);
+        edt_borndate = findViewById(R.id.edt_borndate);
+        spinner_city = findViewById(R.id.spinner_city);
+        edt_horaInicio = findViewById(R.id.edt_horaInicio);
+        edt_horaFinal = findViewById(R.id.edt_horaFinal);
+
+        // Para Spinner
+        String ciudades[] = {"Moscú", "Berlín", "Guanajato", "GDL"};
+        ArrayAdapter<String> adaptador1 = new ArrayAdapter<String>(this,
+                R.layout.spinner1_cities,
+                ciudades);
+        spinner_city.setAdapter(adaptador1);
+
+        // Para toolbar
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        archivo = this.getSharedPreferences("sesion", Context.MODE_PRIVATE);
-        // RecyclerView Para mostrar tablas
-        /*
-        recyclerView = findViewById(R.id.recyclerview);
-        nombrarPlaylist();
-        playlist = findViewById(R.id.btn_playlist);
-        albums = findViewById(R.id.btn_albums);
-        artistas = findViewById(R.id.btn_artistas);*/
 
+        // ClickListener para fecha de nacimiento
+        edt_borndate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                picker_borndate();
+            }
+        });
+        // ClickListener para hora inicio
+        edt_horaInicio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                picker_horaInicio();
+            }
+        });
+        // ClickListener para hora final
+        edt_horaFinal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                picker_horaFinal();
+            }
+        });
+    }
+
+    private void picker_horaFinal() {
+    }
+
+    private void picker_horaInicio() {
+        
+    }
+
+    private void picker_borndate() {
+
+        int d, m, y;    // day, month, year
+        Calendar calendar = Calendar.getInstance();
+        d = calendar.get(Calendar.DAY_OF_MONTH);
+        m = calendar.get(Calendar.MONTH);
+        y = calendar.get(Calendar.YEAR);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                // Suma uno a día porque inicia desde cero
+                String cadena = "" + (dayOfMonth + 1) + "/" +
+                        month + "/" + year;
+                edt_borndate.setText(cadena);
+            }
+        }, y, m, d);
+        datePickerDialog.show();    // Mostrar datePickerD
     }
 
     // Inflar options menu

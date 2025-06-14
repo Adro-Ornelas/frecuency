@@ -4,9 +4,10 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    android:background="@drawable/gradient_background"
     android:orientation="vertical"
-    android:background="@drawable/gradient_background">
+    tools:context=".MainActivity">
+
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
@@ -14,137 +15,171 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@drawable/rounded_edges_main"
         android:layout_margin="20dp"
+        android:background="@drawable/rounded_edges_main"
+        android:orientation="vertical"
         android:padding="10dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:text="@string/artista_show"
-            android:gravity="center"
-            android:textColor="@color/white"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="30dp"
             android:fontFamily="@font/roboto_condense_regular"
-            />
+            android:gravity="center"
+            android:text="@string/artista_show"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+
         <EditText
-        android:id="@+id/edt_nombre_art"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/rounded_edges"
-        android:textSize="20sp"
-        android:hint="@string/nombre_art"
-        android:textColorHint="@color/hintColor"
-        android:textColor="@color/white"
-        android:paddingStart="15dp"
-        android:paddingEnd="15dp"
-        android:layout_marginBottom="10dp"
-        android:autofillHints=""
-        android:inputType="textPersonName"/>
+            android:id="@+id/edt_nombre_art"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="10dp"
+            android:autofillHints=""
+            android:background="@drawable/rounded_edges"
+            android:hint="@string/nombre_art"
+            android:inputType="textPersonName"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/hintColor"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/edt_nombre_real"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@drawable/rounded_edges"
-            android:textSize="20sp"
-            android:hint="@string/nombre_real"
-            android:textColorHint="@color/hintColor"
-            android:textColor="@color/white"
-            android:paddingStart="15dp"
-            android:paddingEnd="15dp"
             android:layout_marginBottom="10dp"
             android:autofillHints=""
-            android:inputType="textEmailAddress"/>
+            android:background="@drawable/rounded_edges"
+            android:hint="@string/nombre_real"
+            android:inputType="textPersonName"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/hintColor"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/edt_apep"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@drawable/rounded_edges"
-            android:textSize="20sp"
-            android:hint="@string/apellido_paterno"
-            android:textColorHint="@color/hintColor"
-            android:textColor="@color/white"
-            android:paddingStart="15dp"
-            android:paddingEnd="15dp"
             android:layout_marginBottom="10dp"
             android:autofillHints=""
-            android:inputType="textEmailAddress"/>
+            android:background="@drawable/rounded_edges"
+            android:hint="@string/apellido_paterno"
+            android:inputType="text"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/hintColor"
+            android:textSize="20sp" />
+
         <EditText
             android:id="@+id/edt_apem"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@drawable/rounded_edges"
-            android:textSize="20sp"
-            android:hint="@string/apellido_materno"
-            android:textColorHint="@color/hintColor"
-            android:textColor="@color/white"
-            android:paddingStart="15dp"
-            android:paddingEnd="15dp"
             android:layout_marginBottom="10dp"
             android:autofillHints=""
-            android:inputType="textEmailAddress"/>
+            android:background="@drawable/rounded_edges"
+            android:hint="@string/apellido_materno"
+            android:inputType="text"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/hintColor"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/edt_tel"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@drawable/rounded_edges"
-            android:textSize="20sp"
-            android:hint="@string/num_telefon"
-            android:textColorHint="@color/hintColor"
-            android:textColor="@color/white"
-            android:paddingStart="15dp"
-            android:paddingEnd="15dp"
             android:layout_marginBottom="10dp"
             android:autofillHints=""
-            android:inputType="number"/>
+            android:background="@drawable/rounded_edges"
+            android:hint="@string/num_telefon"
+            android:inputType="phone"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/hintColor"
+            android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/nombre1"
+            android:id="@+id/edt_borndate"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@drawable/rounded_edges"
-            android:textSize="20sp"
-            android:hint="Año de nacimiento DatePick"
-            android:textColorHint="@color/hintColor"
-            android:textColor="@color/white"
-            android:paddingStart="15dp"
-            android:paddingEnd="15dp"
             android:layout_marginBottom="10dp"
             android:autofillHints=""
-            android:inputType="textEmailAddress"/>
+            android:background="@drawable/rounded_edges"
+            android:clickable="true"
+            android:focusable="false"
+            android:hint="@string/fecha_de_nacimiento"
+            android:inputType="date"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/hintColor"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/spinner_city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:textColor="@color/white"
+            android:layout_marginBottom="10dp" />
+
         <EditText
-            android:id="@+id/nombre3"
+            android:id="@+id/edt_horaInicio"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@drawable/rounded_edges"
-            android:textSize="20sp"
-            android:hint="Ciudad del show (Spinner)"
-            android:textColorHint="@color/hintColor"
-            android:textColor="@color/white"
-            android:paddingStart="15dp"
-            android:paddingEnd="15dp"
             android:layout_marginBottom="10dp"
             android:autofillHints=""
-            android:inputType="textEmailAddress"/>
+            android:background="@drawable/rounded_edges"
+            android:clickable="true"
+            android:focusable="false"
+            android:hint="@string/hora_inicio_del_show"
+            android:inputType="time"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/hintColor"
+            android:textSize="20sp" />
+
         <EditText
-            android:id="@+id/nombre"
+            android:id="@+id/edt_horaFinal"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@drawable/rounded_edges"
-            android:textSize="20sp"
-            android:hint="Hora del show (TimePicck)"
-            android:textColorHint="@color/hintColor"
-            android:textColor="@color/white"
-            android:paddingStart="15dp"
-            android:paddingEnd="15dp"
             android:layout_marginBottom="10dp"
             android:autofillHints=""
-            android:inputType="textEmailAddress"/>
+            android:background="@drawable/rounded_edges"
+            android:clickable="true"
+            android:focusable="false"
+            android:hint="@string/hora_final_del_show"
+            android:inputType="time"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/hintColor"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btn_artistas"
+            android:layout_width="96dp"
+            android:layout_height="48dp"
+            android:backgroundTint="@color/blue"
+            android:fontFamily="@font/roboto_condense_regular"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="CREAR"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
