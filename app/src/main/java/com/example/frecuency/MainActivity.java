@@ -1,6 +1,7 @@
 package com.example.frecuency;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,6 +14,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -88,13 +90,42 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-    private void picker_horaFinal() {
-    }
-
     private void picker_horaInicio() {
-        
+
+        int h, m;   // hour, minute
+        Calendar calendar = Calendar.getInstance();
+        h = calendar.get(Calendar.HOUR_OF_DAY);
+        m = calendar.get(Calendar.MINUTE);
+
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                String cadena = "" + hourOfDay + ":" +
+                        minute;
+                edt_horaInicio.setText(cadena);
+            }
+        }, h, m, true); // Establece parámetros y formato 24 horas true
+        timePickerDialog.show();    // Mostrar TimePickerD
     }
+    private void picker_horaFinal() {
+
+        int h, m;   // hour, minute
+        Calendar calendar = Calendar.getInstance();
+        h = calendar.get(Calendar.HOUR_OF_DAY);
+        m = calendar.get(Calendar.MINUTE);
+
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                String cadena = "" + hourOfDay + ":" +
+                        minute;
+                edt_horaFinal.setText(cadena);
+            }
+        }, h, m, true); // Establece parámetros y formato 24 horas true
+        timePickerDialog.show();    // Mostrar TimePickerD
+    }
+
+
 
     private void picker_borndate() {
 
@@ -107,9 +138,9 @@ public class MainActivity extends AppCompatActivity {
         DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                // Suma uno a día porque inicia desde cero
-                String cadena = "" + (dayOfMonth + 1) + "/" +
-                        month + "/" + year;
+                // Suma uno a mes porque inicia desde cero
+                String cadena = "" + dayOfMonth  + "/" +
+                        (month + 1) + "/" + year;
                 edt_borndate.setText(cadena);
             }
         }, y, m, d);
