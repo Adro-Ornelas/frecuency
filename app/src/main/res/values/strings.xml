@@ -61,4 +61,11 @@
     <string name="album_image">Imagen del álbum</string>
     <string name="skip">skip</string>
     <string name="play">play</string>
+    <string name="artista">Artista</string>
+    <string name="nombre_art">Nombre artístico</string>
+    <string name="nombre_real">Nombre real</string>
+    <string name="apellido_paterno">Apellido paterno</string>
+    <string name="apellido_materno">Apellido materno</string>
+    <string name="num_telefon">Número telefónico</string>
+    <string name="artista_show">Artista - Show</string>
 </resources>

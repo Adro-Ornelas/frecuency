@@ -10,6 +10,7 @@
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,11 +19,133 @@
         android:layout_margin="20dp"
         android:padding="10dp">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/recyclerview"
-            android:layout_gravity="center"/>
+            android:textSize="30sp"
+            android:text="@string/artista_show"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_marginBottom="30dp"
+            android:fontFamily="@font/roboto_condense_regular"
+            />
+        <EditText
+        android:id="@+id/edt_nombre_art"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/rounded_edges"
+        android:textSize="20sp"
+        android:hint="@string/nombre_art"
+        android:textColorHint="@color/hintColor"
+        android:textColor="@color/white"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:layout_marginBottom="10dp"
+        android:autofillHints=""
+        android:inputType="textPersonName"/>
+
+        <EditText
+            android:id="@+id/edt_nombre_real"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/rounded_edges"
+            android:textSize="20sp"
+            android:hint="@string/nombre_real"
+            android:textColorHint="@color/hintColor"
+            android:textColor="@color/white"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:layout_marginBottom="10dp"
+            android:autofillHints=""
+            android:inputType="textEmailAddress"/>
+
+        <EditText
+            android:id="@+id/edt_apep"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/rounded_edges"
+            android:textSize="20sp"
+            android:hint="@string/apellido_paterno"
+            android:textColorHint="@color/hintColor"
+            android:textColor="@color/white"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:layout_marginBottom="10dp"
+            android:autofillHints=""
+            android:inputType="textEmailAddress"/>
+        <EditText
+            android:id="@+id/edt_apem"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/rounded_edges"
+            android:textSize="20sp"
+            android:hint="@string/apellido_materno"
+            android:textColorHint="@color/hintColor"
+            android:textColor="@color/white"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:layout_marginBottom="10dp"
+            android:autofillHints=""
+            android:inputType="textEmailAddress"/>
+
+        <EditText
+            android:id="@+id/edt_tel"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/rounded_edges"
+            android:textSize="20sp"
+            android:hint="@string/num_telefon"
+            android:textColorHint="@color/hintColor"
+            android:textColor="@color/white"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:layout_marginBottom="10dp"
+            android:autofillHints=""
+            android:inputType="number"/>
+
+        <EditText
+            android:id="@+id/nombre1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/rounded_edges"
+            android:textSize="20sp"
+            android:hint="Año de nacimiento DatePick"
+            android:textColorHint="@color/hintColor"
+            android:textColor="@color/white"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:layout_marginBottom="10dp"
+            android:autofillHints=""
+            android:inputType="textEmailAddress"/>
+        <EditText
+            android:id="@+id/nombre3"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/rounded_edges"
+            android:textSize="20sp"
+            android:hint="Ciudad del show (Spinner)"
+            android:textColorHint="@color/hintColor"
+            android:textColor="@color/white"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:layout_marginBottom="10dp"
+            android:autofillHints=""
+            android:inputType="textEmailAddress"/>
+        <EditText
+            android:id="@+id/nombre"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/rounded_edges"
+            android:textSize="20sp"
+            android:hint="Hora del show (TimePicck)"
+            android:textColorHint="@color/hintColor"
+            android:textColor="@color/white"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:layout_marginBottom="10dp"
+            android:autofillHints=""
+            android:inputType="textEmailAddress"/>
+
     </LinearLayout>
 
 </LinearLayout>
