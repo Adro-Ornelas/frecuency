@@ -2,13 +2,11 @@
 <LinearLayout
     android:id="@+id/linearLayout_delete"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="start|center"
-    android:padding="10dp"
-    android:background="@color/blue">
+    android:padding="10dp">
     <CheckBox
         android:id="@+id/checkDelete1"
         android:layout_width="wrap_content"
@@ -16,6 +14,7 @@
         android:textColorHint="@color/white"
         android:shadowColor="@color/white"
         android:textColor="@color/white"
+        android:buttonTint="@color/white"
         />
 
     <TextView

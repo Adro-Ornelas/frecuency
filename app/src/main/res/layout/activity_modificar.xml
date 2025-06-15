@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
+    tools:context=".Modificar"
     android:orientation="vertical"
-    tools:context=".MainActivity">
-
+    android:background="@drawable/gradient_background">
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
@@ -166,19 +166,40 @@
             android:textColor="@color/white"
             android:textColorHint="@color/hintColor"
             android:textSize="20sp" />
-
-        <Button
-            android:id="@+id/btn_crearArtista"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:text="@string/crear"
-            android:textSize="20sp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:gravity="center"
             android:layout_gravity="center"
-            android:textColor="@color/white"
-            android:layout_marginTop="40dp"
-            android:backgroundTint="@color/login_button"
-            />
-
+            android:layout_marginTop="40dp">
+            <ImageButton
+                android:id="@+id/anterior"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textSize="12sp"
+                android:textColor="@color/white"
+                android:background="@drawable/baseline_keyboard_arrow_down_24"
+                android:layout_marginEnd="10dp"
+                android:rotation="90"/>
+            <Button
+                android:id="@+id/actualizar"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="Actualizar"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/login_button"
+                android:layout_marginEnd="10dp"/>
+            <ImageButton
+                android:id="@+id/siguiente"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textSize="12sp"
+                android:textColor="@color/white"
+                android:background="@drawable/baseline_keyboard_arrow_down_24"
+                android:rotation="-90"/>
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

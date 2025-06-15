@@ -11,4 +11,5 @@
     <color name="background_login">#836E98EC</color>
     <color name="login_button">#2167B6</color>
     <color name="backgroundBlue">#327ED5</color>
+    <color name="red">#BA1111</color>
 </resources>

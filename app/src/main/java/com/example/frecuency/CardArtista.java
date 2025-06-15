@@ -96,9 +96,6 @@ public class CardArtista extends AppCompatActivity {
             Intent aCont = new Intent(this, Contactos.class);
             startActivity(aCont);
 
-        } else if (item.getItemId() == R.id.perfil){
-           /* Intent perfil = new Intent(this, Perfil.class);
-            startActivity(perfil);*/
         }
         return super.onOptionsItemSelected(item);
     }

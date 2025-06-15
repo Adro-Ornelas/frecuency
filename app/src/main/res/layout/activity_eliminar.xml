@@ -46,7 +46,7 @@
             android:layout_gravity="center"
             android:textColor="@color/white"
             android:layout_marginTop="40dp"
-            android:backgroundTint="@color/login_button"
+            android:backgroundTint="@color/red"
             />
     </LinearLayout>
 

@@ -51,7 +51,7 @@ public class Creadores extends AppCompatActivity {
             startActivity(aPrc);
 
         } else if(item.getItemId() == R.id.opc_ver){
-/*
+
             Intent aVer = new Intent(this, Ver.class);
             startActivity(aVer);
 
@@ -64,7 +64,7 @@ public class Creadores extends AppCompatActivity {
 
             Intent aElim = new Intent(this, Eliminar.class);
             startActivity(aElim);
-*/
+
         } else if(item.getItemId() == R.id.opc_logout) {
             if(archivo.contains("id_usuario")){
                 Intent cerrar = new Intent(this, Inicio.class);
@@ -83,9 +83,6 @@ public class Creadores extends AppCompatActivity {
             Intent aCont = new Intent(this, Contactos.class);
             startActivity(aCont);
 
-        } else if (item.getItemId() == R.id.perfil){
-/*            Intent perfil = new Intent(this, Perfil.class);
-            startActivity(perfil);*/
         }
         return super.onOptionsItemSelected(item);
     }

@@ -52,7 +52,7 @@ public class Contactos extends AppCompatActivity {
             startActivity(aPrc);
 
         } else if(item.getItemId() == R.id.opc_ver){
-/*
+
             Intent aVer = new Intent(this, Ver.class);
             startActivity(aVer);
 
@@ -65,7 +65,7 @@ public class Contactos extends AppCompatActivity {
 
             Intent aElim = new Intent(this, Eliminar.class);
             startActivity(aElim);
-*/
+
         } else if(item.getItemId() == R.id.opc_logout) {
             if(archivo.contains("id_usuario")){
                 Intent cerrar = new Intent(this, Inicio.class);
@@ -84,9 +84,6 @@ public class Contactos extends AppCompatActivity {
 
             Toast.makeText(this, "Ya se encuentra aquí.", Toast.LENGTH_SHORT).show();
 
-        } else if (item.getItemId() == R.id.perfil){/*
-            Intent perfil = new Intent(this, Perfil.class);
-            startActivity(perfil);*/
         }
         return super.onOptionsItemSelected(item);
     }

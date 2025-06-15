@@ -292,8 +292,8 @@ public class MainActivity extends AppCompatActivity {
 
         } else if(item.getItemId() == R.id.opc_modificar) {
 
-            //Intent aMod = new Intent(this, Modificar.class);
-           // startActivity(aMod);
+            Intent aMod = new Intent(this, Modificar.class);
+            startActivity(aMod);
 
         } else if(item.getItemId() == R.id.opc_eliminar) {
 
@@ -322,9 +322,6 @@ public class MainActivity extends AppCompatActivity {
             Intent aCont = new Intent(this, Contactos.class);
             startActivity(aCont);
 
-        } else if (item.getItemId() == R.id.perfil){
-           /* Intent perfil = new Intent(this, Perfil.class);
-            startActivity(perfil);*/
         }
         return super.onOptionsItemSelected(item);
     }

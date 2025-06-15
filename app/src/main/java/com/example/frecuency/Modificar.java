@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -16,20 +15,15 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import Adaptadores.adaptadorVer;
-
-public class Ver extends AppCompatActivity {
+public class Modificar extends AppCompatActivity {
     Toolbar toolbar;
-    RecyclerView recyclerView;
     SharedPreferences archivo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_ver);
+        setContentView(R.layout.activity_modificar);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -38,18 +32,6 @@ public class Ver extends AppCompatActivity {
 
         // Shared Preferences
         archivo = this.getSharedPreferences("sesion", Context.MODE_PRIVATE);
-
-        // Recycler View y su ViewHolder
-        Context context;
-        recyclerView = findViewById(R.id.rv_Ver);
-        adaptadorVer adapver = new adaptadorVer();
-        adapver.context = this;
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,
-                LinearLayoutManager.VERTICAL, false);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setAdapter(adapver);
-
-
 
         // Para toolbar
         toolbar = findViewById(R.id.toolbar);
@@ -66,16 +48,22 @@ public class Ver extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == R.id.opc_principal){
+
             Intent aMain = new Intent(this, MainActivity.class);
             startActivity(aMain);
+
         } else if(item.getItemId() == R.id.opc_ver){
-            Toast.makeText(this, "Ya se encuentra aquí.", Toast.LENGTH_SHORT).show();
+
+
+            Intent aVer = new Intent(this, Ver.class);
+            startActivity(aVer);
+
         } else if(item.getItemId() == R.id.opc_modificar) {
 
-            Intent aMod = new Intent(this, Modificar.class);
-            startActivity(aMod);
+            Toast.makeText(this, "Ya se encuentra aquí.", Toast.LENGTH_SHORT).show();
 
         } else if(item.getItemId() == R.id.opc_eliminar) {
+
             Intent aElim = new Intent(this, Eliminar.class);
             startActivity(aElim);
 
