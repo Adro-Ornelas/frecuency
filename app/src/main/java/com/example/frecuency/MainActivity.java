@@ -1,11 +1,14 @@
 package com.example.frecuency;
 
+import static android.text.TextUtils.isEmpty;
+
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,14 +28,29 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
+import Global.Listas;
+import POJO.Artista;
 
 public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     SharedPreferences archivo;
     EditText edt_nombreArt, edt_nombreReal, edt_apep, edt_apem, edt_numT, edt_borndate,
-             edt_ciudad, edt_horaInicio, edt_horaFinal;
+             edt_horaInicio, edt_horaFinal;
     Spinner spinner_city;
+    Button btn_crearArt;
 
     Button playlist, albums, artistas;
     @Override
@@ -56,9 +74,14 @@ public class MainActivity extends AppCompatActivity {
         spinner_city = findViewById(R.id.spinner_city);
         edt_horaInicio = findViewById(R.id.edt_horaInicio);
         edt_horaFinal = findViewById(R.id.edt_horaFinal);
+        btn_crearArt = findViewById(R.id.btn_crearArtista);
+
+        // Shared Preferences
+        archivo = this.getSharedPreferences("sesion", Context.MODE_PRIVATE);
 
         // Para Spinner
-        String ciudades[] = {"Moscú", "Berlín", "Guanajato", "GDL"};
+        String ciudades[] = {"Selecciona una ciudad",
+                "Moscú", "Berlín", "Guanajato", "GDL"};
         ArrayAdapter<String> adaptador1 = new ArrayAdapter<String>(this,
                 R.layout.spinner1_cities,
                 ciudades);
@@ -89,7 +112,100 @@ public class MainActivity extends AppCompatActivity {
                 picker_horaFinal();
             }
         });
+        // ClickListener para evento crear (botón)
+        btn_crearArt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                evento_crear();
+            }
+        });
     }
+
+    private void evento_crear() {
+
+        // Primero recupera todos los campos
+        String nomArt, nomReal, apep, apem, tel, nacim, ciudad, hInicio, hFinal;
+
+        nomArt = edt_nombreArt.getText().toString();
+        nomReal = edt_nombreReal.getText().toString();
+        tel = edt_numT.getText().toString();
+        nacim = edt_borndate.getText().toString();
+        apep = edt_apep.getText().toString();
+        apem = edt_apem.getText().toString();
+        ciudad = spinner_city.getSelectedItem().toString();
+        hInicio = edt_horaInicio.getText().toString();
+        hFinal = edt_horaFinal.getText().toString();
+
+        // Si alguno de los campos está vacío informa al usuario
+        if (isEmpty(nomArt) || isEmpty(nomReal) || isEmpty(tel) || isEmpty(nacim) ||
+                ciudad.equals("Selecciona una ciudad") || isEmpty(hInicio) ||
+                isEmpty(hFinal) || isEmpty(apep) || isEmpty(apem)) {
+            Toast.makeText(this, "Llene todos los campos", Toast.LENGTH_SHORT).show();
+
+            // Si el número de teléfono no es de diez dígitos, no continúa
+        } else if (tel.length() != 10) {
+            Toast.makeText(this, "Número telefónico de 10 dígitos", Toast.LENGTH_SHORT).show();
+        } else{
+            // Si todo campo estaba lleno, procede a crear
+            // Llena de información nuevo objeto
+            Artista newArtist = new Artista();
+            newArtist.setNombreArt(nomArt);
+            newArtist.setNombreReal(nomReal);
+            newArtist.setApellidoP(apep);
+            newArtist.setApellidoP(apem);
+            newArtist.setTelefonoCont(tel);
+            newArtist.setFechaNacimiento(nacim);
+            newArtist.setCiudadShow(ciudad);
+            newArtist.setHoraInicio(hInicio);
+            newArtist.setHoraFinal(hFinal);
+
+            // Añadir a la lista de artistas
+            Listas.listaArtistas.add(newArtist);
+
+            // Guarda en base de datos
+            String url = getResources().getString(R.string.base_url) + "insertar_artista.php";
+            StringRequest insertarArt = new StringRequest(Request.Method.POST,
+                    url,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            Log.d("NO paso", response);
+                            Toast.makeText(MainActivity.this, response, Toast.LENGTH_SHORT).show();
+                        }
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Log.d("NO paso", Objects.requireNonNull(error.getMessage()));
+                    Toast.makeText(MainActivity.this, "" + error.getMessage(), Toast.LENGTH_SHORT).show();
+
+                }
+            })
+            {
+                @NonNull
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError{
+                    Map<String, String> x = new HashMap<>();
+                    x.put("nombre_art", "" + newArtist.getNombreReal());
+                    x.put("nombre_real", "" + newArtist.getNombreArt());
+                    x.put("apep", "" + newArtist.getApellidoP());
+                    x.put("apem", "" + newArtist.getApellidoM());
+                    x.put("tel", "" + newArtist.getTelefonoCont());
+                    x.put("fecha_nac", "" + newArtist.getFechaNacimiento());
+                    x.put("ciudad_show", "" + newArtist.getCiudadShow());
+                    x.put("hora_inicio", newArtist.getHoraInicio());
+                    x.put("hora_final", "" + newArtist.getHoraFinal());
+
+                    return x;
+
+                }
+            };
+            RequestQueue queue = Volley.newRequestQueue(this);
+            queue.add(insertarArt);
+
+        }
+
+    }
+
     private void picker_horaInicio() {
 
         int h, m;   // hour, minute
