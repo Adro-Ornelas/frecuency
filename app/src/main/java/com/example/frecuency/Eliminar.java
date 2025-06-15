@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,6 +21,17 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.lang.reflect.Method;
 import java.security.Principal;
 
 import Adaptadores.adaptadorEliminar;
@@ -70,14 +82,49 @@ public class Eliminar extends AppCompatActivity {
     }
 
     private void evento_delete() {
+
         for(int i = 0; i < Listas.listaBajasArtistas.size(); ++i){
+
             // Recupera todos los los artista de lista Bajas y elimina
             Artista artista = Listas.listaBajasArtistas.get(i);
             Listas.listaArtistas.remove(artista);
 
             // Elimina de la base de datos, sólo pasa su id
 
+            String url = getResources().getString(R.string.base_url) +
+                   "eliminar_artista.php?id_artista=" +
+                    Listas.listaBajasArtistas.get(i).getId();
+
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET,
+                    url, null, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    try {
+                        if(response.getInt("success") == 1)
+                            Toast.makeText(Eliminar.this, "1", Toast.LENGTH_SHORT).show();;
+
+                        Toast.makeText(Eliminar.this, response.toString(), Toast.LENGTH_SHORT).show();
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+
+                    Log.d("yo", error.getMessage());
+                    // edt_passwd.setText(error.getMessage());
+                    Toast.makeText(Eliminar.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            // Pon petición en cola
+            RequestQueue queue = Volley.newRequestQueue(this);
+            queue.add(request);
         }
+
+        // Limpia lista bahas y notifica a adaptador para actualizar
         Listas.listaBajasArtistas.clear();
         recyclerView.getAdapter().notifyDataSetChanged();
     }
