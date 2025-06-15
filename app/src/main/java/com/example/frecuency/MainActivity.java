@@ -145,6 +145,7 @@ public class MainActivity extends AppCompatActivity {
             // Si el número de teléfono no es de diez dígitos, no continúa
         } else if (tel.length() != 10) {
             Toast.makeText(this, "Número telefónico de 10 dígitos", Toast.LENGTH_SHORT).show();
+
         } else{
             // Si todo campo estaba lleno, procede a crear
             // Llena de información nuevo objeto
@@ -152,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
             newArtist.setNombreArt(nomArt);
             newArtist.setNombreReal(nomReal);
             newArtist.setApellidoP(apep);
-            newArtist.setApellidoP(apem);
+            newArtist.setApellidoM(apem);
             newArtist.setTelefonoCont(tel);
             newArtist.setFechaNacimiento(nacim);
             newArtist.setCiudadShow(ciudad);
@@ -169,13 +170,13 @@ public class MainActivity extends AppCompatActivity {
                     new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
-                            Log.d("NO paso", response);
+                            //Log.d("NO paso", response);
                             Toast.makeText(MainActivity.this, response, Toast.LENGTH_SHORT).show();
                         }
                     }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Log.d("NO paso", Objects.requireNonNull(error.getMessage()));
+                    //Log.d("NO paso", Objects.requireNonNull(error.getMessage()));
                     Toast.makeText(MainActivity.this, "" + error.getMessage(), Toast.LENGTH_SHORT).show();
 
                 }
@@ -185,15 +186,15 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 protected Map<String, String> getParams() throws AuthFailureError{
                     Map<String, String> x = new HashMap<>();
-                    x.put("nombre_art", "" + newArtist.getNombreReal());
-                    x.put("nombre_real", "" + newArtist.getNombreArt());
-                    x.put("apep", "" + newArtist.getApellidoP());
-                    x.put("apem", "" + newArtist.getApellidoM());
-                    x.put("tel", "" + newArtist.getTelefonoCont());
-                    x.put("fecha_nac", "" + newArtist.getFechaNacimiento());
-                    x.put("ciudad_show", "" + newArtist.getCiudadShow());
+                    x.put("nombre_art",  newArtist.getNombreArt());
+                    x.put("nombre_real", newArtist.getNombreReal());
+                    x.put("apep", newArtist.getApellidoP());
+                    x.put("apem",  newArtist.getApellidoM());
+                    x.put("tel", newArtist.getTelefonoCont());
+                    x.put("fecha_nac", newArtist.getFechaNacimiento());
+                    x.put("ciudad_show", newArtist.getCiudadShow());
                     x.put("hora_inicio", newArtist.getHoraInicio());
-                    x.put("hora_final", "" + newArtist.getHoraFinal());
+                    x.put("hora_final",  newArtist.getHoraFinal());
 
                     return x;
 
@@ -201,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
             };
             RequestQueue queue = Volley.newRequestQueue(this);
             queue.add(insertarArt);
-
+            Toast.makeText(MainActivity.this, "Registro ingresado", Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -255,8 +256,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 // Suma uno a mes porque inicia desde cero
-                String cadena = "" + dayOfMonth  + "/" +
-                        (month + 1) + "/" + year;
+                String cadena = year +  "-" + (month + 1) + "-"  + dayOfMonth;
                 edt_borndate.setText(cadena);
             }
         }, y, m, d);
