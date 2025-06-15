@@ -33,8 +33,13 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.Calendar;
 import java.util.HashMap;
@@ -90,6 +95,9 @@ public class MainActivity extends AppCompatActivity {
         // Para toolbar
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        // Llena ArrayList de artistas
+        recuperarArtistas();
 
         // ClickListener para fecha de nacimiento
         edt_borndate.setOnClickListener(new View.OnClickListener() {
@@ -321,5 +329,57 @@ public class MainActivity extends AppCompatActivity {
             startActivity(perfil);*/
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void recuperarArtistas() {
+        // Si el arrayList está vacío, lo llena de lo recuperado de la base de datos
+        if(Listas.listaArtistas.isEmpty()){
+
+            String url = getResources().getString(R.string.base_url)
+                        + "recuperar_artistas.php";
+
+            JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
+                    new Response.Listener<JSONArray>() {
+                        @Override
+                        public void onResponse(JSONArray response) {
+                            try {
+
+                                Listas.listaArtistas.clear();
+
+                                // Itera por cada JSON Object, hace objeto nuevo y guarda en lista
+                                for (int i = 0; i < response.length(); ++i) {
+
+                                    JSONObject artista = response.getJSONObject(i);
+
+                                    // Llena objeto
+                                    Artista newArtist = new Artista();
+                                    newArtist.setNombreArt(artista.getString("nombre_art"));
+                                    newArtist.setNombreReal(artista.getString("nombre_real"));
+                                    newArtist.setApellidoP(artista.getString("apep"));
+                                    newArtist.setApellidoM(artista.getString("apem"));
+                                    newArtist.setTelefonoCont(artista.getString("tel"));
+                                    newArtist.setFechaNacimiento(artista.getString("fecha_nac"));
+                                    newArtist.setCiudadShow(artista.getString("ciudad_show"));
+                                    newArtist.setHoraInicio(artista.getString("hora_inicio"));
+                                    newArtist.setHoraFinal(artista.getString("hora_final"));
+
+                                    // Agrega objeto a lista
+                                    Listas.listaArtistas.add(newArtist);
+                                }
+
+                            } catch (JSONException e) {
+                                Log.d("E: ", e.getMessage());
+                            }
+                        }
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(MainActivity.this, "E:" + error.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+            RequestQueue requestQueue = Volley.newRequestQueue(this);
+            requestQueue.add(request);
+        }
+
     }
 }
