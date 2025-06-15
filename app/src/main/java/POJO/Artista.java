@@ -2,6 +2,8 @@ package POJO;
 
 public class Artista {
 
+    int id;
+
     String nombreArt;
     String nombreReal;
     String apellidoP;
@@ -12,6 +14,13 @@ public class Artista {
     String horaInicio;
     String horaFinal;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     public String getNombreArt() {
         return nombreArt;
     }

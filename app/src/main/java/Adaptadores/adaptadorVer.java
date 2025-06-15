@@ -29,7 +29,8 @@ public class adaptadorVer extends RecyclerView.Adapter<adaptadorVer.MiniActivity
     public void onBindViewHolder(@NonNull adaptadorVer.MiniActivity holder, int position) {
         final int pos = position;
         // Carga nombre artístico en TextView:
-        holder.txt_artista.setText(Listas.listaArtistas.get(position).getNombreArt());
+        holder.txt_artista.setText(Listas.listaArtistas.get(pos).getId() + " - " +
+                Listas.listaArtistas.get(position).getNombreArt());
         // ClickListener en Layout para mostrar más información:
         holder.linearLayout_artista.setOnClickListener(new View.OnClickListener() {
             @Override

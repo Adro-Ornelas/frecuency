@@ -71,8 +71,12 @@ public class Eliminar extends AppCompatActivity {
 
     private void evento_delete() {
         for(int i = 0; i < Listas.listaBajasArtistas.size(); ++i){
+            // Recupera todos los los artista de lista Bajas y elimina
             Artista artista = Listas.listaBajasArtistas.get(i);
             Listas.listaArtistas.remove(artista);
+
+            // Elimina de la base de datos, sólo pasa su id
+
         }
         Listas.listaBajasArtistas.clear();
         recyclerView.getAdapter().notifyDataSetChanged();

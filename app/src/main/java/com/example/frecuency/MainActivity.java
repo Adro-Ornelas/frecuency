@@ -351,6 +351,7 @@ public class MainActivity extends AppCompatActivity {
 
                                     // Llena objeto
                                     Artista newArtist = new Artista();
+                                    newArtist.setId(Integer.parseInt(artista.getString("id_artista")));
                                     newArtist.setNombreArt(artista.getString("nombre_art"));
                                     newArtist.setNombreReal(artista.getString("nombre_real"));
                                     newArtist.setApellidoP(artista.getString("apep"));

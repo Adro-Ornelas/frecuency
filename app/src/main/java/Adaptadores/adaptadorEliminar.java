@@ -29,7 +29,7 @@ public class adaptadorEliminar extends RecyclerView.Adapter<adaptadorEliminar.Mi
         final int pos = position;
         Artista artista = Listas.listaArtistas.get(pos);
         holder.txtv_dartista.setText(artista.getNombreArt()
-        + " " + artista.getCiudadShow());
+        + " - " + artista.getCiudadShow());
         holder.checkDelete.setChecked(false);
         holder.checkDelete.setOnClickListener(new View.OnClickListener() {
             @Override
