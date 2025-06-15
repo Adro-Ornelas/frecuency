@@ -289,19 +289,17 @@ public class MainActivity extends AppCompatActivity {
 
             Intent aVer = new Intent(this, Ver.class);
             startActivity(aVer);
-/*
-            Intent aVer = new Intent(this, VerCancion.class);
-            startActivity(aVer);
+
         } else if(item.getItemId() == R.id.opc_modificar) {
 
-            Intent aMod = new Intent(this, Modificar.class);
-            startActivity(aMod);
+            //Intent aMod = new Intent(this, Modificar.class);
+           // startActivity(aMod);
 
         } else if(item.getItemId() == R.id.opc_eliminar) {
 
             Intent aElim = new Intent(this, Eliminar.class);
             startActivity(aElim);
-*/
+
         } else if(item.getItemId() == R.id.opc_logout) {
 
             // Si el usuario existe, lo borra de shared preferences y regres a a inicio

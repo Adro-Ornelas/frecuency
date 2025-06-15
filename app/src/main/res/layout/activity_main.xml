@@ -170,18 +170,15 @@
 
         <Button
             android:id="@+id/btn_crearArtista"
-            android:layout_width="match_parent"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/blue"
-            android:fontFamily="@font/roboto_condensed_bold"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:gravity="center"
+            android:text="@string/crear"
+            android:textSize="20sp"
             android:layout_gravity="center"
-            android:text="CREAR"
-            android:layout_marginTop="30dp"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:layout_marginTop="40dp"
+            android:backgroundTint="@color/login_button"
+            />
 
     </LinearLayout>
 

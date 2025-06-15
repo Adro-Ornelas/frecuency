@@ -75,4 +75,8 @@
     <string name="artistas">Artistas</string>
     <string name="llamar">LLAMAR</string>
     <string name="ciudad_del_show">Ciudad del show</string>
+    <string name="artistas_registrados">Artistas registrados</string>
+    <string name="eliminar_artistas">Eliminar artistas</string>
+    <string name="eliminar">ELIMINAR</string>
+    <string name="crear">CREAR</string>
 </resources>
