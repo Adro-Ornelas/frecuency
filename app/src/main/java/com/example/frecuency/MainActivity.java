@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Para Spinner
         String ciudades[] = {"Selecciona una ciudad",
-                "Moscú", "Berlín", "Guanajato", "GDL"};
+                "Moscú", "Berlín", "Guanajato", "GDL", "New York"};
         ArrayAdapter<String> adaptador1 = new ArrayAdapter<String>(this,
                 R.layout.spinner1_cities,
                 ciudades);
@@ -292,8 +292,12 @@ public class MainActivity extends AppCompatActivity {
 
         } else if(item.getItemId() == R.id.opc_modificar) {
 
-            Intent aMod = new Intent(this, Modificar.class);
-            startActivity(aMod);
+            if (Listas.listaArtistas.isEmpty()) {
+                Toast.makeText(this, "No hay artistas registrados", Toast.LENGTH_LONG).show();
+            }else{
+                Intent aMod = new Intent(this, Modificar.class);
+                startActivity(aMod);
+            }
 
         } else if(item.getItemId() == R.id.opc_eliminar) {
 

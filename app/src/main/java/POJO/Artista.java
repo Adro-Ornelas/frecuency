@@ -3,7 +3,6 @@ package POJO;
 public class Artista {
 
     int id;
-
     String nombreArt;
     String nombreReal;
     String apellidoP;
