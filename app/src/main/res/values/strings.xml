@@ -1,5 +1,5 @@
 <resources>
-    <string name="base_url">https://ornelashouse.ddns.net/Frecuency/</string>
+    <string name="base_url">https://ec3f-2806-2f0-56c0-fe66-8c96-1480-5c32-d7f2.ngrok-free.app/Frecuency/</string>
     <string name="app_name">Frequency</string>
     <string name="user_txt">Correo electronico</string>
     <string name="password_txt">Contraseña</string>
@@ -72,4 +72,7 @@
     <string name="fecha_de_nacimiento">Fecha de nacimiento</string>
     <string name="hora_final_del_show">Hora final del show</string>
     <string name="hora_inicio_del_show">Hora inicio del show</string>
+    <string name="artistas">Artistas</string>
+    <string name="llamar">LLAMAR</string>
+    <string name="ciudad_del_show">Ciudad del show</string>
 </resources>

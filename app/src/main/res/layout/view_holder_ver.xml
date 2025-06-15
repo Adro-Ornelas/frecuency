@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/linearLayout_artista"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="340dp"
+    android:layout_height="wrap_content"
+    android:gravity="start|center"
+    android:background="@color/blue">
+        <ImageView
+            android:id="@+id/album_image"
+            android:layout_marginStart="10dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="@string/album_image"
+            android:src="@drawable/baseline_music_note_24"
+            android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/txtv_artista"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/artista"
+                android:textSize="25sp"
+                android:layout_marginStart="30dp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/roboto_condensed_semibold"/>
+
+</LinearLayout>

@@ -26,8 +26,8 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:src="@drawable/frequency_icon_png"
+            android:layout_height="200dp"
+            android:src="@drawable/adro"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -43,8 +43,8 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:src="@drawable/frequency_icon_png"
+            android:layout_height="200dp"
+            android:src="@drawable/kosey"
             />
         <TextView
             android:layout_width="wrap_content"

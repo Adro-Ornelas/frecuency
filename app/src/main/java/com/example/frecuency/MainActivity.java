@@ -278,9 +278,9 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Ya se encuentra aquí.", Toast.LENGTH_SHORT).show();
         } else if(item.getItemId() == R.id.opc_ver){
 
-            /*
+
             Intent aVer = new Intent(this, Ver.class);
-            startActivity(aVer);*/
+            startActivity(aVer);
 /*
             Intent aVer = new Intent(this, VerCancion.class);
             startActivity(aVer);
