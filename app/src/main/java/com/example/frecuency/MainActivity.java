@@ -51,7 +51,7 @@ import POJO.Artista;
 public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     SharedPreferences archivo;
-    EditText edt_nombreArt, edt_nombreReal, edt_apep, edt_apem, edt_numT, edt_borndate,
+    EditText edt_nombreArt, edt_nombreReal, edt_apep, edt_apem, edt_numT, edt_showdate,
              edt_horaInicio, edt_horaFinal;
     Spinner spinner_city;
     Button btn_crearArt;
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         edt_apep = findViewById(R.id.edt_apep);
         edt_apem = findViewById(R.id.edt_apem);
         edt_numT = findViewById(R.id.edt_tel);
-        edt_borndate = findViewById(R.id.edt_borndate);
+        edt_showdate = findViewById(R.id.edt_showdate);
         spinner_city = findViewById(R.id.spinner_city);
         edt_horaInicio = findViewById(R.id.edt_horaInicio);
         edt_horaFinal = findViewById(R.id.edt_horaFinal);
@@ -99,11 +99,11 @@ public class MainActivity extends AppCompatActivity {
         // Llena ArrayList de artistas
         recuperarArtistas();
 
-        // ClickListener para fecha de nacimiento
-        edt_borndate.setOnClickListener(new View.OnClickListener() {
+        // ClickListener para fecha de fec_show
+        edt_showdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                picker_borndate();
+                picker_showdate();
             }
         });
         // ClickListener para hora inicio
@@ -132,12 +132,12 @@ public class MainActivity extends AppCompatActivity {
     private void evento_crear() {
 
         // Primero recupera todos los campos
-        String nomArt, nomReal, apep, apem, tel, nacim, ciudad, hInicio, hFinal;
+        String nomArt, nomReal, apep, apem, tel, fec_show, ciudad, hInicio, hFinal;
 
         nomArt = edt_nombreArt.getText().toString();
         nomReal = edt_nombreReal.getText().toString();
         tel = edt_numT.getText().toString();
-        nacim = edt_borndate.getText().toString();
+        fec_show = edt_showdate.getText().toString();
         apep = edt_apep.getText().toString();
         apem = edt_apem.getText().toString();
         ciudad = spinner_city.getSelectedItem().toString();
@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
         hFinal = edt_horaFinal.getText().toString();
 
         // Si alguno de los campos está vacío informa al usuario
-        if (isEmpty(nomArt) || isEmpty(nomReal) || isEmpty(tel) || isEmpty(nacim) ||
+        if (isEmpty(nomArt) || isEmpty(nomReal) || isEmpty(tel) || isEmpty(fec_show) ||
                 ciudad.equals("Selecciona una ciudad") || isEmpty(hInicio) ||
                 isEmpty(hFinal) || isEmpty(apep) || isEmpty(apem)) {
             Toast.makeText(this, "Llene todos los campos", Toast.LENGTH_SHORT).show();
@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
             newArtist.setApellidoP(apep);
             newArtist.setApellidoM(apem);
             newArtist.setTelefonoCont(tel);
-            newArtist.setFecha_show(nacim);
+            newArtist.setFecha_show(fec_show);
             newArtist.setCiudadShow(ciudad);
             newArtist.setHoraInicio(hInicio);
             newArtist.setHoraFinal(hFinal);
@@ -252,7 +252,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    private void picker_borndate() {
+    private void picker_showdate() {
 
         int d, m, y;    // day, month, year
         Calendar calendar = Calendar.getInstance();
@@ -265,7 +265,7 @@ public class MainActivity extends AppCompatActivity {
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 // Suma uno a mes porque inicia desde cero
                 String cadena = year +  "-" + (month + 1) + "-"  + dayOfMonth;
-                edt_borndate.setText(cadena);
+                edt_showdate.setText(cadena);
             }
         }, y, m, d);
         datePickerDialog.show();    // Mostrar datePickerD

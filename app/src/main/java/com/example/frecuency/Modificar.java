@@ -38,7 +38,7 @@ import POJO.Artista;
 
 public class Modificar extends AppCompatActivity {
     Toolbar toolbar;
-    EditText edt_nombreArt, edt_nombreReal, edt_apep, edt_apem, edt_numT, edt_borndate,
+    EditText edt_nombreArt, edt_nombreReal, edt_apep, edt_apem, edt_numT, edt_showdate,
             edt_horaInicio, edt_horaFinal;
     Spinner spinner_city;
     Button btn_actualizar;
@@ -62,7 +62,7 @@ public class Modificar extends AppCompatActivity {
         edt_apep = findViewById(R.id.edt_apep);
         edt_apem = findViewById(R.id.edt_apem);
         edt_numT = findViewById(R.id.edt_tel);
-        edt_borndate = findViewById(R.id.edt_borndate);
+        edt_showdate = findViewById(R.id.edt_mshowdate);
         spinner_city = findViewById(R.id.spinner_city);
         edt_horaInicio = findViewById(R.id.edt_horaInicio);
         edt_horaFinal = findViewById(R.id.edt_horaFinal);
@@ -119,7 +119,7 @@ public class Modificar extends AppCompatActivity {
         edt_apep.setText(Listas.listaArtistas.get(pos).getApellidoP());
         edt_apem.setText(Listas.listaArtistas.get(pos).getApellidoM());
         edt_numT.setText(Listas.listaArtistas.get(pos).getTelefonoCont());
-        edt_borndate.setText(Listas.listaArtistas.get(pos).getFecha_show());
+        edt_showdate.setText(Listas.listaArtistas.get(pos).getFecha_show());
         ArrayAdapter<CharSequence> adapter = (ArrayAdapter<CharSequence>) spinner_city.getAdapter();
         int index = adapter.getPosition(ciudad);
         // Selecciona "Selecciona una ciudad" si no la encuentra
@@ -141,7 +141,7 @@ public class Modificar extends AppCompatActivity {
         edt_apep.setText(Listas.listaArtistas.get(pos).getApellidoP());
         edt_apem.setText(Listas.listaArtistas.get(pos).getApellidoM());
         edt_numT.setText(Listas.listaArtistas.get(pos).getTelefonoCont());
-        edt_borndate.setText(Listas.listaArtistas.get(pos).getFecha_show());
+        edt_showdate.setText(Listas.listaArtistas.get(pos).getFecha_show());
         ArrayAdapter<CharSequence> adapter = (ArrayAdapter<CharSequence>) spinner_city.getAdapter();
         int index = adapter.getPosition(ciudad);
         // Selecciona "Selecciona una ciudad" si no la encuentra
@@ -163,7 +163,7 @@ public class Modificar extends AppCompatActivity {
         edt_apep.setText(Listas.listaArtistas.get(pos).getApellidoP());
         edt_apem.setText(Listas.listaArtistas.get(pos).getApellidoM());
         edt_numT.setText(Listas.listaArtistas.get(pos).getTelefonoCont());
-        edt_borndate.setText(Listas.listaArtistas.get(pos).getFecha_show());
+        edt_showdate.setText(Listas.listaArtistas.get(pos).getFecha_show());
         ArrayAdapter<CharSequence> adapter = (ArrayAdapter<CharSequence>) spinner_city.getAdapter();
         int index = adapter.getPosition(ciudad);
         // Selecciona "Selecciona una ciudad" si no la encuentra
@@ -178,7 +178,7 @@ public class Modificar extends AppCompatActivity {
         nomArt = edt_nombreArt.getText().toString();
         nomReal = edt_nombreReal.getText().toString();
         tel = edt_numT.getText().toString();
-        nacim = edt_borndate.getText().toString();
+        nacim = edt_showdate.getText().toString();
         apep = edt_apep.getText().toString();
         apem = edt_apem.getText().toString();
         ciudad = spinner_city.getSelectedItem().toString();
