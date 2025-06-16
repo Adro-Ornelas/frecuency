@@ -83,12 +83,24 @@ public class Inicio extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 try {
                     if (response.getInt("usr") != -1) {
-                        Intent in = new Intent(Inicio.this, MainActivity.class);
+
+                        int id_user = response.getInt("usr");
+                        // Sube id a SharedPref
                         SharedPreferences.Editor editor = archivo.edit();
-                        editor.putInt("id_usuario", response.getInt("usr"));
+                        editor.putInt("id_usuario", id_user);
                         editor.apply();
-                        startActivity(in);
-                        finish();
+                        // Si el ID del usuario es 1, 2, 3, 4, 5, se trata de un administrador
+                        if(id_user < 6){
+                            // Va a activity Main
+                            Intent in = new Intent(Inicio.this, MainActivity.class);
+                            startActivity(in);
+                            finish();
+                        } else {
+                            // Va a activity Ver
+                            Intent in = new Intent(Inicio.this,Ver.class);
+                            startActivity(in);
+                            finish();
+                        }
                     }else {
                         et_user.setText("");
                         et_password.setText("");

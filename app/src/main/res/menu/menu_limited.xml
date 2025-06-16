@@ -2,9 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/opc_principal"
-        android:title="Principal"/>
-    <item
         android:id="@+id/opc_logout"
         android:title="Cerrar sesión"
         android:icon="@drawable/baseline_logout_24"
@@ -12,16 +9,6 @@
     <item
         android:id="@+id/opc_ver"
         android:title="Ver"
-        />
-    <item
-        android:id="@+id/opc_modificar"
-        android:title="Modificar"
-        />
-    <item
-        android:id="@+id/opc_eliminar"
-        android:title="Eliminar"
-        android:icon="@drawable/baseline_delete_24"
-        app:showAsAction="always"
         />
     <item
         android:id="@+id/opc_creadores"
