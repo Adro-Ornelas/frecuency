@@ -85,11 +85,12 @@ public class MainActivity extends AppCompatActivity {
         archivo = this.getSharedPreferences("sesion", Context.MODE_PRIVATE);
 
         // Para Spinner
-        String ciudades[] = {"Selecciona una ciudad",
-                "Moscú", "Berlín", "Guanajato", "GDL", "New York"};
-        ArrayAdapter<String> adaptador1 = new ArrayAdapter<String>(this,
-                R.layout.spinner1_cities,
-                ciudades);
+        ArrayAdapter<CharSequence> adaptador1 = ArrayAdapter.createFromResource(
+                this,
+                R.array.ciudades_array,
+                R.layout.spinner1_cities
+        );
+        adaptador1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_city.setAdapter(adaptador1);
 
         // Para toolbar

@@ -71,11 +71,12 @@ public class Modificar extends AppCompatActivity {
         btn_siguiente = findViewById(R.id.siguiente);
 
         // Para Spinner
-        String ciudades[] = {"Selecciona una ciudad",
-                "Moscú", "Berlín", "Guanajato", "GDL", "New York"};
-        ArrayAdapter<String> adaptador1 = new ArrayAdapter<String>(this,
-                R.layout.spinner1_cities,
-                ciudades);
+        ArrayAdapter<CharSequence> adaptador1 = ArrayAdapter.createFromResource(
+                this,
+                R.array.ciudades_array,
+                R.layout.spinner1_cities
+        );
+        adaptador1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_city.setAdapter(adaptador1);
 
         // Shared Preferences
@@ -119,7 +120,7 @@ public class Modificar extends AppCompatActivity {
         edt_apem.setText(Listas.listaArtistas.get(pos).getApellidoM());
         edt_numT.setText(Listas.listaArtistas.get(pos).getTelefonoCont());
         edt_borndate.setText(Listas.listaArtistas.get(pos).getFechaNacimiento());
-        ArrayAdapter<String> adapter = (ArrayAdapter<String>) spinner_city.getAdapter();
+        ArrayAdapter<CharSequence> adapter = (ArrayAdapter<CharSequence>) spinner_city.getAdapter();
         int index = adapter.getPosition(ciudad);
         // Selecciona "Selecciona una ciudad" si no la encuentra
         spinner_city.setSelection(Math.max(index, 0));
@@ -141,7 +142,7 @@ public class Modificar extends AppCompatActivity {
         edt_apem.setText(Listas.listaArtistas.get(pos).getApellidoM());
         edt_numT.setText(Listas.listaArtistas.get(pos).getTelefonoCont());
         edt_borndate.setText(Listas.listaArtistas.get(pos).getFechaNacimiento());
-        ArrayAdapter<String> adapter = (ArrayAdapter<String>) spinner_city.getAdapter();
+        ArrayAdapter<CharSequence> adapter = (ArrayAdapter<CharSequence>) spinner_city.getAdapter();
         int index = adapter.getPosition(ciudad);
         // Selecciona "Selecciona una ciudad" si no la encuentra
         spinner_city.setSelection(Math.max(index, 0));
@@ -163,7 +164,7 @@ public class Modificar extends AppCompatActivity {
         edt_apem.setText(Listas.listaArtistas.get(pos).getApellidoM());
         edt_numT.setText(Listas.listaArtistas.get(pos).getTelefonoCont());
         edt_borndate.setText(Listas.listaArtistas.get(pos).getFechaNacimiento());
-        ArrayAdapter<String> adapter = (ArrayAdapter<String>) spinner_city.getAdapter();
+        ArrayAdapter<CharSequence> adapter = (ArrayAdapter<CharSequence>) spinner_city.getAdapter();
         int index = adapter.getPosition(ciudad);
         // Selecciona "Selecciona una ciudad" si no la encuentra
         spinner_city.setSelection(Math.max(index, 0));

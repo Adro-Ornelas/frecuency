@@ -79,4 +79,37 @@
     <string name="eliminar_artistas">Eliminar artistas</string>
     <string name="eliminar">ELIMINAR</string>
     <string name="crear">CREAR</string>
+
+    <string-array name="ciudades_array">
+        <item>Selecciona una ciudad</item>
+        <item>Ámsterdam</item>
+        <item>Atenas</item>
+        <item>Berlín</item>
+        <item>Buenos Aires</item>
+        <item>Ciudad de México</item>
+        <item>Dubai</item>
+        <item>GDL</item>
+        <item>Guanajuato</item>
+        <item>Hong Kong</item>
+        <item>Johannesburgo</item>
+        <item>Londres</item>
+        <item>Los Ángeles</item>
+        <item>Madrid</item>
+        <item>Miami</item>
+        <item>Milán</item>
+        <item>Moscú</item>
+        <item>New Delhi</item>
+        <item>New York</item>
+        <item>París</item>
+        <item>Rio de Janeiro</item>
+        <item>Roma</item>
+        <item>Seúl</item>
+        <item>Shanghái</item>
+        <item>Sídney</item>
+        <item>Singapur</item>
+        <item>Tokio</item>
+        <item>Toronto</item>
+        <item>Vancouver</item>
+    </string-array>
+
 </resources>
