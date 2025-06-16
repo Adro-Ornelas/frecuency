@@ -49,11 +49,10 @@ public class Ver extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapver);
 
-
-
         // Para toolbar
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
     }
     // Inflar options menu
     @Override
