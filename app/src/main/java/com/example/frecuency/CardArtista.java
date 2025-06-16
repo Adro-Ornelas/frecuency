@@ -30,6 +30,8 @@ public class CardArtista extends AppCompatActivity {
             txtv_fecnac, txtv_ciudadShow, txtv_horaIncio, txtv_horaFin;
     Button btn_llamar;
     SharedPreferences archivo;
+
+    int id_user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +69,8 @@ public class CardArtista extends AppCompatActivity {
 
         // Shared Preferences
         archivo = this.getSharedPreferences("sesion", Context.MODE_PRIVATE);
+        // Recupera el ID del usuario (default user normal)
+        id_user = archivo.getInt("id_usuario", 6);
 
         // Para toolbar
         toolbar = findViewById(R.id.toolbar);
@@ -94,32 +98,42 @@ public class CardArtista extends AppCompatActivity {
     // Inflar options menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
+        // SI es user admin carga el menu completo
+        if (id_user < 6) {
+            getMenuInflater().inflate(R.menu.menu, menu);
+        } else {
+            // SI no carga el menu limitado
+            getMenuInflater().inflate(R.menu.menu_limited, menu);
+        }
         return super.onCreateOptionsMenu(menu);
     }
 
     // Opciones del menu (navega entre activities o logout)
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == R.id.opc_principal){
 
-            Intent aMain = new Intent(this, MainActivity.class);
-            startActivity(aMain);
+        // Si es usuario normal (ID > 5) no muestra principal, modificar ni eliminar
 
-        } else if(item.getItemId() == R.id.opc_ver){
+        if(id_user < 6) {
+            if (item.getItemId() == R.id.opc_principal) {
+                Intent aMain = new Intent(this, MainActivity.class);
+                startActivity(aMain);
+
+            } else if (item.getItemId() == R.id.opc_modificar) {
+
+                Intent aMod = new Intent(this, Modificar.class);
+                startActivity(aMod);
+
+            } else if (item.getItemId() == R.id.opc_eliminar) {
+                Intent aElim = new Intent(this, Eliminar.class);
+                startActivity(aElim);
+
+            }
+        }
+        if(item.getItemId() == R.id.opc_ver){
 
             Intent aVer = new Intent(this, Ver.class);
             startActivity(aVer);
-
-        } else if(item.getItemId() == R.id.opc_modificar) {
-
-            Intent aMod = new Intent(this, Modificar.class);
-            startActivity(aMod);
-
-        } else if(item.getItemId() == R.id.opc_eliminar) {
-
-            Intent aElim = new Intent(this, Eliminar.class);
-            startActivity(aElim);
 
         } else if(item.getItemId() == R.id.opc_logout) {
 
@@ -144,6 +158,7 @@ public class CardArtista extends AppCompatActivity {
             startActivity(aCont);
 
         }
+        finish();
         return super.onOptionsItemSelected(item);
     }
 }
