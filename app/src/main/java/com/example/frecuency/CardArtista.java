@@ -62,7 +62,7 @@ public class CardArtista extends AppCompatActivity {
         txtv_apep.setText(Listas.listaArtistas.get(pos).getApellidoP());
         txtv_apem.setText(Listas.listaArtistas.get(pos).getApellidoM());
         txtv_tel.setText(Listas.listaArtistas.get(pos).getTelefonoCont());
-        txtv_fecnac.setText(Listas.listaArtistas.get(pos).getFechaNacimiento());
+        txtv_fecnac.setText(Listas.listaArtistas.get(pos).getFecha_show());
         txtv_ciudadShow.setText(Listas.listaArtistas.get(pos).getCiudadShow());
         txtv_horaIncio.setText(Listas.listaArtistas.get(pos).getHoraInicio());
         txtv_horaFin.setText(Listas.listaArtistas.get(pos).getHoraFinal());

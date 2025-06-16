@@ -44,7 +44,6 @@ import org.json.JSONObject;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 import Global.Listas;
 import POJO.Artista;
@@ -164,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
             newArtist.setApellidoP(apep);
             newArtist.setApellidoM(apem);
             newArtist.setTelefonoCont(tel);
-            newArtist.setFechaNacimiento(nacim);
+            newArtist.setFecha_show(nacim);
             newArtist.setCiudadShow(ciudad);
             newArtist.setHoraInicio(hInicio);
             newArtist.setHoraFinal(hFinal);
@@ -200,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
                     x.put("apep", newArtist.getApellidoP());
                     x.put("apem",  newArtist.getApellidoM());
                     x.put("tel", newArtist.getTelefonoCont());
-                    x.put("fecha_nac", newArtist.getFechaNacimiento());
+                    x.put("fecha_show", newArtist.getFecha_show());
                     x.put("ciudad_show", newArtist.getCiudadShow());
                     x.put("hora_inicio", newArtist.getHoraInicio());
                     x.put("hora_final",  newArtist.getHoraFinal());
@@ -359,7 +358,7 @@ public class MainActivity extends AppCompatActivity {
                                     newArtist.setApellidoP(artista.getString("apep"));
                                     newArtist.setApellidoM(artista.getString("apem"));
                                     newArtist.setTelefonoCont(artista.getString("tel"));
-                                    newArtist.setFechaNacimiento(artista.getString("fecha_nac"));
+                                    newArtist.setFecha_show(artista.getString("fecha_show"));
                                     newArtist.setCiudadShow(artista.getString("ciudad_show"));
                                     newArtist.setHoraInicio(artista.getString("hora_inicio"));
                                     newArtist.setHoraFinal(artista.getString("hora_final"));

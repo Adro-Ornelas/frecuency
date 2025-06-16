@@ -8,7 +8,7 @@ public class Artista {
     String apellidoP;
     String apellidoM;
     String telefonoCont;
-    String fechaNacimiento;
+    String fecha_show;
     String ciudadShow;
     String horaInicio;
     String horaFinal;
@@ -60,12 +60,12 @@ public class Artista {
         this.telefonoCont = telefonoCont;
     }
 
-    public String getFechaNacimiento() {
-        return fechaNacimiento;
+    public String getFecha_show() {
+        return fecha_show;
     }
 
-    public void setFechaNacimiento(String fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
+    public void setFecha_show(String fecha_show) {
+        this.fecha_show = fecha_show;
     }
 
     public String getCiudadShow() {

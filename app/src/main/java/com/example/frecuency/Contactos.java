@@ -62,21 +62,25 @@ public class Contactos extends AppCompatActivity {
             if (item.getItemId() == R.id.opc_principal) {
                 Intent aMain = new Intent(this, MainActivity.class);
                 startActivity(aMain);
+                finish();
 
             } else if (item.getItemId() == R.id.opc_modificar) {
 
                 Intent aMod = new Intent(this, Modificar.class);
                 startActivity(aMod);
+                finish();
 
             } else if (item.getItemId() == R.id.opc_eliminar) {
                 Intent aElim = new Intent(this, Eliminar.class);
                 startActivity(aElim);
+                finish();
 
             }
         }
         if(item.getItemId() == R.id.opc_ver){
             Intent aVer = new Intent(this, Ver.class);
             startActivity(aVer);
+            finish();
 
         } else if(item.getItemId() == R.id.opc_logout) {
 
@@ -94,13 +98,13 @@ public class Contactos extends AppCompatActivity {
 
             Intent aCrea = new Intent(this, Creadores.class);
             startActivity(aCrea);
+            finish();
 
         } else if(item.getItemId() == R.id.opc_contactos) {
 
             Toast.makeText(this, "Ya se encuentra aquí.", Toast.LENGTH_SHORT).show();
 
         }
-        finish();
         return super.onOptionsItemSelected(item);
     }
 }

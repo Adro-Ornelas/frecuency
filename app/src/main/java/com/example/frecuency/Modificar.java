@@ -119,7 +119,7 @@ public class Modificar extends AppCompatActivity {
         edt_apep.setText(Listas.listaArtistas.get(pos).getApellidoP());
         edt_apem.setText(Listas.listaArtistas.get(pos).getApellidoM());
         edt_numT.setText(Listas.listaArtistas.get(pos).getTelefonoCont());
-        edt_borndate.setText(Listas.listaArtistas.get(pos).getFechaNacimiento());
+        edt_borndate.setText(Listas.listaArtistas.get(pos).getFecha_show());
         ArrayAdapter<CharSequence> adapter = (ArrayAdapter<CharSequence>) spinner_city.getAdapter();
         int index = adapter.getPosition(ciudad);
         // Selecciona "Selecciona una ciudad" si no la encuentra
@@ -141,7 +141,7 @@ public class Modificar extends AppCompatActivity {
         edt_apep.setText(Listas.listaArtistas.get(pos).getApellidoP());
         edt_apem.setText(Listas.listaArtistas.get(pos).getApellidoM());
         edt_numT.setText(Listas.listaArtistas.get(pos).getTelefonoCont());
-        edt_borndate.setText(Listas.listaArtistas.get(pos).getFechaNacimiento());
+        edt_borndate.setText(Listas.listaArtistas.get(pos).getFecha_show());
         ArrayAdapter<CharSequence> adapter = (ArrayAdapter<CharSequence>) spinner_city.getAdapter();
         int index = adapter.getPosition(ciudad);
         // Selecciona "Selecciona una ciudad" si no la encuentra
@@ -163,7 +163,7 @@ public class Modificar extends AppCompatActivity {
         edt_apep.setText(Listas.listaArtistas.get(pos).getApellidoP());
         edt_apem.setText(Listas.listaArtistas.get(pos).getApellidoM());
         edt_numT.setText(Listas.listaArtistas.get(pos).getTelefonoCont());
-        edt_borndate.setText(Listas.listaArtistas.get(pos).getFechaNacimiento());
+        edt_borndate.setText(Listas.listaArtistas.get(pos).getFecha_show());
         ArrayAdapter<CharSequence> adapter = (ArrayAdapter<CharSequence>) spinner_city.getAdapter();
         int index = adapter.getPosition(ciudad);
         // Selecciona "Selecciona una ciudad" si no la encuentra
@@ -193,7 +193,7 @@ public class Modificar extends AppCompatActivity {
         update.setApellidoP(apep);
         update.setApellidoM(apem);
         update.setTelefonoCont(tel);
-        update.setFechaNacimiento(nacim);
+        update.setFecha_show(nacim);
         update.setCiudadShow(ciudad);
         update.setHoraInicio(hInicio);
         update.setHoraFinal(hFinal);
@@ -228,7 +228,7 @@ public class Modificar extends AppCompatActivity {
                 x.put("apep", update.getApellidoP());
                 x.put("apem",  update.getApellidoM());
                 x.put("tel", update.getTelefonoCont());
-                x.put("fecha_nac", update.getFechaNacimiento());
+                x.put("fecha_show", update.getFecha_show());
                 x.put("ciudad_show", update.getCiudadShow());
                 x.put("hora_inicio", update.getHoraInicio());
                 x.put("hora_final",  update.getHoraFinal());

@@ -63,22 +63,27 @@ public class Creadores extends AppCompatActivity {
             if (item.getItemId() == R.id.opc_principal) {
                 Intent aMain = new Intent(this, MainActivity.class);
                 startActivity(aMain);
+                finish();
 
             } else if (item.getItemId() == R.id.opc_modificar) {
 
                 Intent aMod = new Intent(this, Modificar.class);
                 startActivity(aMod);
+                finish();
 
             } else if (item.getItemId() == R.id.opc_eliminar) {
                 Intent aElim = new Intent(this, Eliminar.class);
                 startActivity(aElim);
+                finish();
 
             }
+
         }
         if(item.getItemId() == R.id.opc_ver){
 
             Intent aVer = new Intent(this, Ver.class);
             startActivity(aVer);
+            finish();
 
         } else if(item.getItemId() == R.id.opc_logout) {
 
@@ -100,9 +105,9 @@ public class Creadores extends AppCompatActivity {
 
             Intent aCont = new Intent(this, Contactos.class);
             startActivity(aCont);
-
+            finish();
         }
-        finish();
+
         return super.onOptionsItemSelected(item);
     }
 }
