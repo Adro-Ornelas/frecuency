@@ -69,7 +69,7 @@
     <string name="apellido_materno">Apellido materno</string>
     <string name="num_telefon">Número telefónico</string>
     <string name="artista_show">Artista - Show</string>
-    <string name="fecha_de_nacimiento">Fecha de nacimiento</string>
+    <string name="fecha_de_nacimiento">Fecha del show</string>
     <string name="hora_final_del_show">Hora final del show</string>
     <string name="hora_inicio_del_show">Hora inicio del show</string>
     <string name="artistas">Artistas</string>

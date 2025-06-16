@@ -49,7 +49,7 @@
             android:layout_marginBottom="10dp"
             android:text="@string/nombre_real"
             android:textColor="@color/white"
-            android:textSize="15sp"
+            android:textSize="18sp"
             android:gravity="center"
             android:fontFamily="@font/roboto_condense_regular"/>
         <TextView
@@ -59,7 +59,7 @@
             android:layout_marginBottom="10dp"
             android:text="@string/apellido_paterno"
             android:textColor="@color/white"
-            android:textSize="15sp"
+            android:textSize="18sp"
             android:gravity="center"
             android:fontFamily="@font/roboto_condense_regular"/>
         <TextView
@@ -69,7 +69,7 @@
             android:layout_marginBottom="10dp"
             android:text="@string/apellido_materno"
             android:textColor="@color/white"
-            android:textSize="15sp"
+            android:textSize="18sp"
             android:gravity="center"
             android:fontFamily="@font/roboto_condense_regular"/>
         <TextView
@@ -79,7 +79,7 @@
             android:layout_marginBottom="10dp"
             android:text="@string/num_telefon"
             android:textColor="@color/white"
-            android:textSize="15sp"
+            android:textSize="18sp"
             android:gravity="center"
             android:fontFamily="@font/roboto_condense_regular"/>
         <TextView
@@ -89,7 +89,7 @@
             android:layout_marginBottom="10dp"
             android:text="@string/fecha_de_nacimiento"
             android:textColor="@color/white"
-            android:textSize="15sp"
+            android:textSize="18sp"
             android:gravity="center"
             android:fontFamily="@font/roboto_condense_regular"/>
         <TextView
@@ -99,7 +99,7 @@
             android:layout_marginBottom="10dp"
             android:text="@string/ciudad_del_show"
             android:textColor="@color/white"
-            android:textSize="15sp"
+            android:textSize="18sp"
             android:gravity="center"
             android:fontFamily="@font/roboto_condense_regular"/>
         <TextView
@@ -109,7 +109,7 @@
             android:layout_marginBottom="10dp"
             android:text="@string/hora_inicio_del_show"
             android:textColor="@color/white"
-            android:textSize="15sp"
+            android:textSize="18sp"
             android:gravity="center"
             android:fontFamily="@font/roboto_condense_regular"/>
         <TextView
@@ -119,7 +119,7 @@
             android:layout_marginBottom="10dp"
             android:text="@string/hora_final_del_show"
             android:textColor="@color/white"
-            android:textSize="15sp"
+            android:textSize="18sp"
             android:gravity="center"
             android:fontFamily="@font/roboto_condense_regular"/>
 
@@ -131,7 +131,8 @@
             android:layout_marginTop="30dp"
             android:text="@string/llamar"
             android:backgroundTint="@color/green"
-            />
+            android:textColor="@color/white"
+            android:textSize="20sp"/>
 
     </LinearLayout>
     </androidx.cardview.widget.CardView>
