@@ -55,6 +55,7 @@ public class Ver extends AppCompatActivity {
         // Para toolbar
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
     }
     // Inflar options menu
     @Override
